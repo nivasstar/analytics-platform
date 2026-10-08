@@ -1,0 +1,152 @@
+datasets:
+
+  market.spy_prices:
+    domain: market
+    description: Daily SPY market prices
+    source:
+      type: yahoo
+      symbol: SPY
+    frequency: daily
+    storage:
+      bronze: data/bronze/market/spy_prices.parquet
+      silver: data/silver/market/spy_prices.parquet
+    quality:
+      required_columns:
+        - date
+        - close
+        - volume
+      not_null:
+        - date
+        - close
+      unique:
+        - date
+      numeric:
+        - close
+        - volume
+
+  macro.unemployment:
+    domain: macro
+    description: US unemployment rate
+    source:
+      type: fred
+      series_id: UNRATE
+    frequency: monthly
+    storage:
+      bronze: data/bronze/macro/unemployment.parquet
+      silver: data/silver/macro/unemployment.parquet
+    quality:
+      required_columns:
+        - date
+        - value
+      not_null:
+        - date
+      unique:
+        - date
+      numeric:
+        - value
+
+  macro.yield_10y:
+    domain: macro
+    description: US 10-year Treasury yield
+    source:
+      type: fred
+      series_id: DGS10
+    frequency: daily
+    storage:
+      bronze: data/bronze/macro/yield_10y.parquet
+      silver: data/silver/macro/yield_10y.parquet
+    quality:
+      required_columns:
+        - date
+        - value
+      not_null:
+        - date
+      unique:
+        - date
+      numeric:
+        - value
+
+  macro.yield_3m:
+    domain: macro
+    description: US 3-month Treasury yield
+    source:
+      type: fred
+      series_id: DGS3MO
+    frequency: daily
+    storage:
+      bronze: data/bronze/macro/yield_3m.parquet
+      silver: data/silver/macro/yield_3m.parquet
+    quality:
+      required_columns:
+        - date
+        - value
+      not_null:
+        - date
+      unique:
+        - date
+      numeric:
+        - value
+
+  economic_history.country_history:
+    domain: economic_history
+    description: Historical GDP, GDP per capita, and population by country
+    source:
+      type: parquet
+      path: data/external/economic_history/country_history.parquet
+    frequency: annual
+    storage:
+      bronze: data/bronze/economic_history/country_history.parquet
+      silver: data/silver/economic_history/country_history.parquet
+    quality:
+      required_columns:
+        - country_id
+        - country
+        - year
+      not_null:
+        - country_id
+        - country
+        - year
+
+  economic_history.long_population:
+    domain: economic_history
+    description: Long-run population history including ancient periods
+    source:
+      type: parquet
+      path: data/external/economic_history/long_population.parquet
+    frequency: historical
+    storage:
+      bronze: data/bronze/economic_history/long_population.parquet
+      silver: data/silver/economic_history/long_population.parquet
+    quality:
+      required_columns:
+        - country_id
+        - country
+        - year
+        - population
+      not_null:
+        - country_id
+        - country
+        - year
+
+  economic_history.world_bank_history:
+    domain: economic_history
+    description: Modern World Bank economic indicators
+    source:
+      type: parquet
+      path: data/external/economic_history/world_bank_history.parquet
+    frequency: annual
+    storage:
+      bronze: data/bronze/economic_history/world_bank_history.parquet
+      silver: data/silver/economic_history/world_bank_history.parquet
+    quality:
+      required_columns:
+        - country_id
+        - country
+        - year
+        - metric
+        - value
+      not_null:
+        - country_id
+        - country
+        - year
+        - metric

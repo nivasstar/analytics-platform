@@ -1,0 +1,88 @@
+from analytics_platform.ingestion.registry import DatasetRegistry
+from analytics_platform.ingestion.factory import SourceFactory
+from analytics_platform.datasets.storage import StorageManager
+from analytics_platform.datasets.normalizer import DatasetNormalizer
+from analytics_platform.quality.validator import DatasetValidator
+
+
+class DatasetManager:
+
+    def __init__(self, registry_path="config/datasets.yaml"):
+        self.registry = DatasetRegistry(registry_path)
+
+    def get_dataset(
+        self,
+        dataset_name,
+        save_bronze=True,
+        **params
+    ):
+        definition = self.registry.get(dataset_name)
+
+        source_config = definition["source"]
+        source_type = source_config["type"]
+
+        source = SourceFactory.create(source_type)
+
+        fetch_args = {
+            key: value
+            for key, value in source_config.items()
+            if key != "type"
+        }
+
+        fetch_args.update(params)
+
+        df = source.fetch(**fetch_args)
+
+        normalized_df = DatasetNormalizer.normalize(
+            df=df,
+            dataset_name=dataset_name,
+            source_type=source_type
+        )
+
+        quality_rules = definition.get(
+            "quality",
+            {}
+        )
+
+        DatasetValidator.validate(
+            normalized_df,
+            quality_rules,
+            dataset_name
+        )
+
+        storage_config = definition.get(
+            "storage",
+            {}
+        )
+
+        bronze_path = storage_config.get(
+            "bronze"
+        )
+
+        silver_path = storage_config.get(
+            "silver"
+        )
+
+        if save_bronze and bronze_path:
+            StorageManager.write_parquet(
+                df,
+                bronze_path
+            )
+
+        if silver_path:
+            StorageManager.write_parquet(
+                normalized_df,
+                silver_path
+            )
+
+        return normalized_df
+
+
+_default_manager = DatasetManager()
+
+
+def get_dataset(dataset_name, **params):
+    return _default_manager.get_dataset(
+        dataset_name,
+        **params
+    )

@@ -1,0 +1,44 @@
+economic_history:
+
+  population:
+    rules:
+      - before: 1
+        priority:
+          - OWID_LONG_POPULATION
+          - MPD2023
+
+      - from: 1
+        before: 1960
+        priority:
+          - MPD2023
+          - OWID_LONG_POPULATION
+
+      - from: 1960
+        priority:
+          - WORLD_BANK_WDI
+          - MPD2023
+          - OWID_LONG_POPULATION
+
+  gdp:
+    rules:
+      - before: 1960
+        priority:
+          - MPD2023
+          - WORLD_BANK_WDI
+
+      - from: 1960
+        priority:
+          - WORLD_BANK_WDI
+          - MPD2023
+
+  gdp_per_capita:
+    rules:
+      - before: 1960
+        priority:
+          - MPD2023
+          - WORLD_BANK_WDI
+
+      - from: 1960
+        priority:
+          - WORLD_BANK_WDI
+          - MPD2023

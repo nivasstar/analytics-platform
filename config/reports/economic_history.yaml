@@ -1,0 +1,64 @@
+report:
+  id: economic_history
+  name: Global Economic History
+  description: Long-run economic and population history
+
+  dataset:
+    builder: build_economic_history
+    params:
+      country: India
+
+  renderer:
+    type: generic
+
+  sections:
+
+    - type: chart
+      chart: line
+      title: India Population Through History
+      x: year
+      y: population
+      output: reports/output/assets/india_population.png
+      markdown_path: assets/india_population.png
+
+    - type: table
+      title: Historical Milestones
+      year_column: year
+      years:
+        - -1000
+        - 1
+        - 1000
+        - 1500
+        - 1700
+        - 1800
+        - 1900
+        - 1950
+        - 1960
+        - 2000
+        - 2020
+        - 2025
+
+      columns:
+        - column: year
+          label: Year
+          format: integer
+
+        - column: population
+          label: Population
+          format: integer
+
+        - column: gdp
+          label: GDP
+          format: integer
+
+        - column: gdp_per_capita
+          label: GDP per Capita
+          format: decimal_2
+
+    - type: coverage
+      title: Data Coverage
+      year_column: year
+
+  output:
+    markdown: reports/output/economic_history.md
+    html: reports/output/economic_history.html

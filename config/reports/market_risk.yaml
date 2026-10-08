@@ -1,0 +1,13 @@
+report:
+  id: market_risk
+  name: Market Risk Monitor
+  description: Market and macro risk snapshot
+
+  dataset:
+    builder: build_risk_snapshot
+
+  renderer:
+    type: market_risk
+
+  output:
+    markdown: reports/output/market_risk.md

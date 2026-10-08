@@ -1,0 +1,15 @@
+report:
+  id: economic_history
+  name: Global Economic History
+  description: Long-run economic and population history
+
+  dataset:
+    builder: build_economic_history
+    params:
+      country: India
+
+  renderer:
+    type: economic_history
+
+  output:
+    markdown: reports/output/economic_history.md

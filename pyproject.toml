@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analytics-platform"
+version = "0.1.0"
+description = "Reusable analytics, ingestion, and reporting platform"
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["analytics_platform*"]
