@@ -66,58 +66,363 @@ nav a {
 
 <h1>Forecasts vs Facts</h1>
 <p>Comparing documented forecasts with observed outcomes</p>
-<h2>Forecast Comparisons</h2>
+<h2>Summary</h2>
+<ul>
+<li>Forecast comparisons: 17</li>
+<li>Point forecasts: 16</li>
+<li>Threshold forecasts: 1</li>
+<li>Range forecasts: 0</li>
+<li>Categories: 2</li>
+</ul>
+<h2>Closest Forecasts</h2>
 <table>
 <thead>
 <tr>
 <th>Topic</th>
-<th>Forecast</th>
-<th>Actual</th>
-<th>Error %</th>
-<th>Actual vs Forecast</th>
-<th>Classification</th>
+<th>Forecast Made</th>
+<th>Target</th>
+<th>Horizon</th>
+<th style="text-align: right;">Forecast</th>
+<th style="text-align: right;">Actual</th>
+<th style="text-align: right;">Absolute Error %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global electric car sales</td>
+<td>2023-04-26</td>
+<td>2023-12-31</td>
+<td>8 months</td>
+<td style="text-align: right;">14.00</td>
+<td style="text-align: right;">14.00</td>
+<td style="text-align: right;">0.00%</td>
+</tr>
+<tr>
+<td>US unemployment rate</td>
+<td>2023-12-13</td>
+<td>2024-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">4.10</td>
+<td style="text-align: right;">4.10</td>
+<td style="text-align: right;">0.00%</td>
+</tr>
+<tr>
+<td>Global electric car sales</td>
+<td>2024-04-23</td>
+<td>2024-12-31</td>
+<td>8 months</td>
+<td style="text-align: right;">17.00</td>
+<td style="text-align: right;">17.00</td>
+<td style="text-align: right;">0.00%</td>
+</tr>
+<tr>
+<td>US unemployment rate</td>
+<td>2021-12-15</td>
+<td>2022-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">2.86%</td>
+</tr>
+<tr>
+<td>Global renewable capacity additions</td>
+<td>2021-05-11</td>
+<td>2021-12-31</td>
+<td>8 months</td>
+<td style="text-align: right;">270.00</td>
+<td style="text-align: right;">290.00</td>
+<td style="text-align: right;">7.41%</td>
+</tr>
+</tbody>
+</table>
+<h2>Biggest Misses</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Forecast Made</th>
+<th>Target</th>
+<th>Horizon</th>
+<th style="text-align: right;">Forecast</th>
+<th style="text-align: right;">Actual</th>
+<th style="text-align: right;">Absolute Error %</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>US real GDP growth</td>
-<td>4.00</td>
-<td>2.10</td>
-<td>-47.50</td>
-<td>below</td>
-<td>actual_below_forecast</td>
-</tr>
-<tr>
-<td>US unemployment rate</td>
-<td>3.50</td>
-<td>3.60</td>
-<td>2.86</td>
-<td>above</td>
-<td>very_close</td>
+<td>2022-12-14</td>
+<td>2023-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">3.10</td>
+<td style="text-align: right;">520.00%</td>
 </tr>
 <tr>
 <td>US PCE inflation</td>
-<td>2.60</td>
-<td>6.30</td>
-<td>142.31</td>
-<td>above</td>
+<td>2021-12-15</td>
+<td>2022-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">2.60</td>
+<td style="text-align: right;">5.70</td>
+<td style="text-align: right;">119.23%</td>
+</tr>
+<tr>
+<td>US real GDP growth</td>
+<td>2021-12-15</td>
+<td>2022-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">77.50%</td>
+</tr>
+<tr>
+<td>US real GDP growth</td>
+<td>2023-12-13</td>
+<td>2024-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">1.40</td>
+<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">71.43%</td>
+</tr>
+<tr>
+<td>Global solar PV capacity additions</td>
+<td>2021-05-11</td>
+<td>2022-12-31</td>
+<td>20 months</td>
+<td style="text-align: right;">162.00</td>
+<td style="text-align: right;">220.00</td>
+<td style="text-align: right;">35.80%</td>
+</tr>
+</tbody>
+</table>
+<h2>Accuracy by Forecast Horizon</h2>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th style="text-align: right;">Forecasts</th>
+<th style="text-align: right;">Mean Absolute Error</th>
+<th style="text-align: right;">Median Absolute Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–3 years</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">80.82%</td>
+<td style="text-align: right;">21.43%</td>
+</tr>
+<tr>
+<td>&lt; 1 year</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">11.48%</td>
+<td style="text-align: right;">7.41%</td>
+</tr>
+</tbody>
+</table>
+<h2>All Forecasts vs Facts</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Topic</th>
+<th>Forecast Made</th>
+<th>Target</th>
+<th>Horizon</th>
+<th style="text-align: right;">Forecast</th>
+<th style="text-align: right;">Actual</th>
+<th style="text-align: right;">Error %</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>economics</td>
+<td>US real GDP growth</td>
+<td>2021-12-15</td>
+<td>2022-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">-77.50%</td>
+<td>actual_below_forecast</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US unemployment rate</td>
+<td>2021-12-15</td>
+<td>2022-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">2.86%</td>
+<td>very_close</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US PCE inflation</td>
+<td>2021-12-15</td>
+<td>2022-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">2.60</td>
+<td style="text-align: right;">5.70</td>
+<td style="text-align: right;">119.23%</td>
 <td>actual_above_forecast</td>
 </tr>
 <tr>
+<td>technology_energy</td>
 <td>Global renewable capacity additions</td>
-<td>198.00</td>
-<td>260.00</td>
-<td>31.31</td>
-<td>above</td>
+<td>2020-11-10</td>
+<td>2020-12-31</td>
+<td>51 days</td>
+<td style="text-align: right;">198.00</td>
+<td style="text-align: right;">260.00</td>
+<td style="text-align: right;">31.31%</td>
 <td>actual_above_forecast</td>
 </tr>
 <tr>
+<td>technology_energy</td>
 <td>Global solar PV additions</td>
-<td>107.00</td>
-<td>127.00</td>
-<td>18.69</td>
-<td>above</td>
+<td>2020-11-10</td>
+<td>2020-12-31</td>
+<td>51 days</td>
+<td style="text-align: right;">107.00</td>
+<td style="text-align: right;">127.00</td>
+<td style="text-align: right;">18.69%</td>
 <td>actual_above_forecast</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US real GDP growth</td>
+<td>2022-12-14</td>
+<td>2023-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">3.10</td>
+<td style="text-align: right;">520.00%</td>
+<td>actual_above_forecast</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US unemployment rate</td>
+<td>2022-12-14</td>
+<td>2023-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">4.60</td>
+<td style="text-align: right;">3.70</td>
+<td style="text-align: right;">-19.57%</td>
+<td>actual_below_forecast</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US PCE inflation</td>
+<td>2022-12-14</td>
+<td>2023-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">3.10</td>
+<td style="text-align: right;">2.70</td>
+<td style="text-align: right;">-12.90%</td>
+<td>close</td>
+</tr>
+<tr>
+<td>technology_energy</td>
+<td>Global renewable capacity additions</td>
+<td>2021-05-11</td>
+<td>2021-12-31</td>
+<td>8 months</td>
+<td style="text-align: right;">270.00</td>
+<td style="text-align: right;">290.00</td>
+<td style="text-align: right;">7.41%</td>
+<td>close</td>
+</tr>
+<tr>
+<td>technology_energy</td>
+<td>Global renewable capacity additions</td>
+<td>2021-05-11</td>
+<td>2022-12-31</td>
+<td>20 months</td>
+<td style="text-align: right;">280.00</td>
+<td style="text-align: right;">340.00</td>
+<td style="text-align: right;">21.43%</td>
+<td>actual_above_forecast</td>
+</tr>
+<tr>
+<td>technology_energy</td>
+<td>Global solar PV capacity additions</td>
+<td>2021-05-11</td>
+<td>2022-12-31</td>
+<td>20 months</td>
+<td style="text-align: right;">162.00</td>
+<td style="text-align: right;">220.00</td>
+<td style="text-align: right;">35.80%</td>
+<td>actual_above_forecast</td>
+</tr>
+<tr>
+<td>technology_energy</td>
+<td>Global renewable capacity additions</td>
+<td>2022-05-11</td>
+<td>2022-12-31</td>
+<td>8 months</td>
+<td style="text-align: right;">&gt; 300.00</td>
+<td style="text-align: right;">340.00</td>
+<td style="text-align: right;">13.33%</td>
+<td>threshold_met</td>
+</tr>
+<tr>
+<td>technology_energy</td>
+<td>Global electric car sales</td>
+<td>2023-04-26</td>
+<td>2023-12-31</td>
+<td>8 months</td>
+<td style="text-align: right;">14.00</td>
+<td style="text-align: right;">14.00</td>
+<td style="text-align: right;">0.00%</td>
+<td>very_close</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US real GDP growth</td>
+<td>2023-12-13</td>
+<td>2024-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">1.40</td>
+<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">71.43%</td>
+<td>actual_above_forecast</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US unemployment rate</td>
+<td>2023-12-13</td>
+<td>2024-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">4.10</td>
+<td style="text-align: right;">4.10</td>
+<td style="text-align: right;">0.00%</td>
+<td>very_close</td>
+</tr>
+<tr>
+<td>economics</td>
+<td>US PCE inflation</td>
+<td>2023-12-13</td>
+<td>2024-12-31</td>
+<td>13 months</td>
+<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">2.60</td>
+<td style="text-align: right;">8.33%</td>
+<td>close</td>
+</tr>
+<tr>
+<td>technology_energy</td>
+<td>Global electric car sales</td>
+<td>2024-04-23</td>
+<td>2024-12-31</td>
+<td>8 months</td>
+<td style="text-align: right;">17.00</td>
+<td style="text-align: right;">17.00</td>
+<td style="text-align: right;">0.00%</td>
+<td>very_close</td>
 </tr>
 </tbody>
 </table>

@@ -169,12 +169,16 @@ datasets:
         - target_date
         - forecast_source
         - actual_source
+        - forecast_operator
         - status
+
       not_null:
         - forecast_id
         - category
         - topic
         - forecast_source
+        - forecast_operator
         - status
+
       unique:
         - forecast_id
