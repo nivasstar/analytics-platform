@@ -11,3 +11,4 @@ report:
 
   output:
     markdown: reports/output/market_risk.md
+    html: reports/output/market_risk.html
