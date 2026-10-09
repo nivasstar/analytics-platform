@@ -7,7 +7,7 @@ from analytics_platform.ingestion.base import DataSource
 class FredSource(DataSource):
 
     def __init__(self):
-        api_key = os.getenv("FRED_API_KEY")
+        api_key = os.getenv("FRED_API_KEY", "").strip()
 
         if not api_key:
             raise ValueError(
