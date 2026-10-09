@@ -31,6 +31,7 @@ def publish_html(
 <a href="index.html">Home</a>
 <a href="market_risk.html">Market Risk</a>
 <a href="economic_history.html">Economic History</a>
+<a href="forecasts_vs_facts.html">Forecasts vs Facts</a>
 </nav>
 
 {html_body}

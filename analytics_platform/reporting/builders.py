@@ -1,12 +1,14 @@
 from analytics_platform.datasets.gold import (
     build_risk_snapshot,
     build_economic_history_gold,
+    build_forecasts_vs_facts_gold,
 )
 
 
 BUILDERS = {
     "build_risk_snapshot": build_risk_snapshot,
     "build_economic_history": build_economic_history_gold,
+    "build_forecasts_vs_facts": build_forecasts_vs_facts_gold,
 }
 
 

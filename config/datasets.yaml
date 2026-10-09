@@ -150,3 +150,31 @@ datasets:
         - country
         - year
         - metric
+
+  forecasts_vs_facts.seed:
+    domain: forecasts_vs_facts
+    description: Curated forecast-versus-outcome seed dataset
+    source:
+      type: csv
+      path: data/source/forecasts_vs_facts/seed.csv
+    storage:
+      bronze: data/bronze/forecasts_vs_facts/seed.parquet
+      silver: data/silver/forecasts_vs_facts/seed.parquet
+    quality:
+      required_columns:
+        - forecast_id
+        - category
+        - topic
+        - forecast_date
+        - target_date
+        - forecast_source
+        - actual_source
+        - status
+      not_null:
+        - forecast_id
+        - category
+        - topic
+        - forecast_source
+        - status
+      unique:
+        - forecast_id

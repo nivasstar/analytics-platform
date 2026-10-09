@@ -1,0 +1,41 @@
+report:
+  id: forecasts_vs_facts
+  name: Forecasts vs Facts
+  description: Comparing documented forecasts with observed outcomes
+
+  dataset:
+    builder: build_forecasts_vs_facts
+
+  renderer:
+    type: generic
+
+  sections:
+
+    - type: table
+      title: Forecast Comparisons
+
+      columns:
+        - column: topic
+          label: Topic
+
+        - column: forecast_value
+          label: Forecast
+          format: decimal_2
+
+        - column: actual_value
+          label: Actual
+          format: decimal_2
+
+        - column: percentage_error
+          label: Error %
+          format: decimal_2
+
+        - column: direction
+          label: Actual vs Forecast
+
+        - column: outcome_classification
+          label: Classification
+
+  output:
+    markdown: reports/output/forecasts_vs_facts.md
+    html: reports/output/forecasts_vs_facts.html

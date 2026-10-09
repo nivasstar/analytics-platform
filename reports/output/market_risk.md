@@ -6,17 +6,17 @@ Market and macro risk snapshot
 
 | Metric | Value |
 |---|---:|
-| SPY Close | 775.65 |
-| 200-Day Moving Average | 722.47 |
-| 30-Day Volatility | 9.88% |
-| Drawdown | -0.44% |
+| SPY Close | 777.46 |
+| 200-Day Moving Average | 722.92 |
+| 30-Day Volatility | 9.85% |
+| Drawdown | -0.21% |
 | 10Y-3M Yield Spread | 1.06% |
 | Unemployment Rate | 4.20% |
 
 ## Data Dates
 
-- Market data: 2026-10-08
-- Yield data: 2026-10-06
+- Market data: 2026-10-09
+- Yield data: 2026-10-07
 - Unemployment data: 2026-09-01
 
 ---

@@ -1,6 +1,7 @@
 from analytics_platform.ingestion.yahoo import YahooSource
 from analytics_platform.ingestion.fred import FredSource
 from analytics_platform.ingestion.parquet import ParquetSource
+from analytics_platform.ingestion.csv_source import CSVSource
 
 class SourceFactory:
 
@@ -11,6 +12,7 @@ class SourceFactory:
             "yahoo": YahooSource,
             "fred": FredSource,
             "parquet": ParquetSource,
+            "csv": CSVSource,
         }
 
         if source_type not in sources:

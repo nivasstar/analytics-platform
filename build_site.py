@@ -1,9 +1,7 @@
 from pathlib import Path
 
-
 OUTPUT = Path("reports/output")
 OUTPUT.mkdir(parents=True, exist_ok=True)
-
 
 html = """<!DOCTYPE html>
 <html lang="en">
@@ -49,7 +47,6 @@ Reusable research, quantitative analysis, and reporting platform.
 </p>
 
 <div class="card">
-
 <h2>
 <a href="market_risk.html">
 Market Risk Monitor
@@ -60,11 +57,9 @@ Market Risk Monitor
 Market conditions, volatility, drawdown,
 yield curve and macroeconomic indicators.
 </p>
-
 </div>
 
 <div class="card">
-
 <h2>
 <a href="economic_history.html">
 Global Economic History
@@ -75,7 +70,19 @@ Global Economic History
 Long-run population, GDP and GDP-per-capita analysis
 across historical and modern data sources.
 </p>
+</div>
 
+<div class="card">
+<h2>
+<a href="forecasts_vs_facts.html">
+Forecasts vs Facts
+</a>
+</h2>
+
+<p>
+Compare documented economic, technology and other forecasts
+with observed outcomes and supporting evidence.
+</p>
 </div>
 
 </body>
@@ -87,4 +94,7 @@ across historical and modern data sources.
     encoding="utf-8"
 )
 
-print("Site index generated:", OUTPUT / "index.html")
+print(
+    "Site index generated:",
+    OUTPUT / "index.html"
+)
