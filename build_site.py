@@ -116,6 +116,12 @@ Filter policy decisions, compare predictions and outcomes,
 explore timelines, and inspect supporting evidence.
 </p>
 </div>
+
+<div class="card">
+<h2><a href="economic_dashboard.html">Interactive Global Economic History</a></h2>
+<p>Compare countries, explore centuries of economic and population
+history, and filter the timeline interactively.</p>
+</div>
 </body>
 </html>
 """
