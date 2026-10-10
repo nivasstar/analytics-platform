@@ -106,6 +106,16 @@ causal interpretation.
 Explore linked charts, heatmaps and original evidence.</p>
 </div>
 
+
+<div class="card">
+<h2><a href="decisions_dashboard.html">
+Interactive Decisions Explorer
+</a></h2>
+<p>
+Filter policy decisions, compare predictions and outcomes,
+explore timelines, and inspect supporting evidence.
+</p>
+</div>
 </body>
 </html>
 """

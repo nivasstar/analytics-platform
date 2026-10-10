@@ -46,6 +46,7 @@ jobs:
           python run_report.py config/reports/forecasts_vs_facts.yaml
           python run_report.py config/reports/decisions_vs_outcomes.yaml
           python build_interactive_dashboard.py
+          python build_decisions_dashboard.py
           python build_site.py
 
 
