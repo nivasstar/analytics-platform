@@ -14,6 +14,27 @@ Comparing documented forecasts with observed outcomes
 - roadmap: 2
 - policy_target: 1
 
+## Forecast vs Actual
+
+![Forecast vs Actual](assets/forecast_vs_actual_scatter.png)
+
+Points closer to the diagonal represent forecasts that were closer
+to the observed outcome.
+
+## Largest Forecast Errors
+
+![Largest Forecast Errors](assets/error_by_case.png)
+
+## Accuracy by Forecast Horizon
+
+![Accuracy by Horizon](assets/accuracy_by_horizon.png)
+
+| Horizon | Forecasts | Mean Absolute Error | Median Absolute Error |
+|---|---:|---:|---:|
+| 10+ years | 2 | 147.02% | 147.02% |
+| 1–3 years | 11 | 80.82% | 21.43% |
+| < 1 year | 6 | 12.66% | 12.99% |
+
 ## Closest Forecasts
 
 | Topic | Type | Forecast Made | Target | Horizon | Forecast | Actual | Absolute Error % |
@@ -33,14 +54,6 @@ Comparing documented forecasts with observed outcomes
 | US PCE inflation | forecast | 2021-12-15 | 2022-12-31 | 13 months | 2.60 | 5.70 | 119.23% |
 | US real GDP growth | forecast | 2021-12-15 | 2022-12-31 | 13 months | 4.00 | 0.90 | 77.50% |
 | US real GDP growth | forecast | 2023-12-13 | 2024-12-31 | 13 months | 1.40 | 2.40 | 71.43% |
-
-## Accuracy by Forecast Horizon
-
-| Horizon | Forecasts | Mean Absolute Error | Median Absolute Error |
-|---|---:|---:|---:|
-| 10+ years | 2 | 147.02% | 147.02% |
-| 1–3 years | 11 | 80.82% | 21.43% |
-| < 1 year | 6 | 12.66% | 12.99% |
 
 ## Accuracy by Forecast Type
 

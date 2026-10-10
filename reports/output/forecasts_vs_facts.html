@@ -78,6 +78,44 @@ nav a {
 <li>roadmap: 2</li>
 <li>policy_target: 1</li>
 </ul>
+<h2>Forecast vs Actual</h2>
+<p><img alt="Forecast vs Actual" src="assets/forecast_vs_actual_scatter.png" /></p>
+<p>Points closer to the diagonal represent forecasts that were closer
+to the observed outcome.</p>
+<h2>Largest Forecast Errors</h2>
+<p><img alt="Largest Forecast Errors" src="assets/error_by_case.png" /></p>
+<h2>Accuracy by Forecast Horizon</h2>
+<p><img alt="Accuracy by Horizon" src="assets/accuracy_by_horizon.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th style="text-align: right;">Forecasts</th>
+<th style="text-align: right;">Mean Absolute Error</th>
+<th style="text-align: right;">Median Absolute Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10+ years</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">147.02%</td>
+<td style="text-align: right;">147.02%</td>
+</tr>
+<tr>
+<td>1–3 years</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">80.82%</td>
+<td style="text-align: right;">21.43%</td>
+</tr>
+<tr>
+<td>&lt; 1 year</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">12.66%</td>
+<td style="text-align: right;">12.99%</td>
+</tr>
+</tbody>
+</table>
 <h2>Closest Forecasts</h2>
 <table>
 <thead>
@@ -209,37 +247,6 @@ nav a {
 <td style="text-align: right;">1.40</td>
 <td style="text-align: right;">2.40</td>
 <td style="text-align: right;">71.43%</td>
-</tr>
-</tbody>
-</table>
-<h2>Accuracy by Forecast Horizon</h2>
-<table>
-<thead>
-<tr>
-<th>Horizon</th>
-<th style="text-align: right;">Forecasts</th>
-<th style="text-align: right;">Mean Absolute Error</th>
-<th style="text-align: right;">Median Absolute Error</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>10+ years</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">147.02%</td>
-<td style="text-align: right;">147.02%</td>
-</tr>
-<tr>
-<td>1–3 years</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">80.82%</td>
-<td style="text-align: right;">21.43%</td>
-</tr>
-<tr>
-<td>&lt; 1 year</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">12.66%</td>
-<td style="text-align: right;">12.99%</td>
 </tr>
 </tbody>
 </table>
