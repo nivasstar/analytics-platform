@@ -68,17 +68,22 @@ nav a {
 <p>Comparing documented forecasts with observed outcomes</p>
 <h2>Summary</h2>
 <ul>
-<li>Forecast comparisons: 23</li>
-<li>Point forecasts: 19</li>
-<li>Threshold forecasts: 4</li>
-<li>Range forecasts: 0</li>
+<li>Total comparisons: 23</li>
+<li>Quantitative point forecasts: 19</li>
 <li>Categories: 3</li>
+</ul>
+<h3>Forecast Types</h3>
+<ul>
+<li>forecast: 20</li>
+<li>roadmap: 2</li>
+<li>policy_target: 1</li>
 </ul>
 <h2>Closest Forecasts</h2>
 <table>
 <thead>
 <tr>
 <th>Topic</th>
+<th>Type</th>
 <th>Forecast Made</th>
 <th>Target</th>
 <th>Horizon</th>
@@ -90,6 +95,7 @@ nav a {
 <tbody>
 <tr>
 <td>Global electric car sales</td>
+<td>forecast</td>
 <td>2023-04-26</td>
 <td>2023-12-31</td>
 <td>8 months</td>
@@ -99,6 +105,7 @@ nav a {
 </tr>
 <tr>
 <td>US unemployment rate</td>
+<td>forecast</td>
 <td>2023-12-13</td>
 <td>2024-12-31</td>
 <td>13 months</td>
@@ -108,6 +115,7 @@ nav a {
 </tr>
 <tr>
 <td>Global electric car sales</td>
+<td>forecast</td>
 <td>2024-04-23</td>
 <td>2024-12-31</td>
 <td>8 months</td>
@@ -117,6 +125,7 @@ nav a {
 </tr>
 <tr>
 <td>US unemployment rate</td>
+<td>forecast</td>
 <td>2021-12-15</td>
 <td>2022-12-31</td>
 <td>13 months</td>
@@ -126,6 +135,7 @@ nav a {
 </tr>
 <tr>
 <td>Global renewable capacity additions</td>
+<td>forecast</td>
 <td>2021-05-11</td>
 <td>2021-12-31</td>
 <td>8 months</td>
@@ -140,6 +150,7 @@ nav a {
 <thead>
 <tr>
 <th>Topic</th>
+<th>Type</th>
 <th>Forecast Made</th>
 <th>Target</th>
 <th>Horizon</th>
@@ -151,6 +162,7 @@ nav a {
 <tbody>
 <tr>
 <td>US real GDP growth</td>
+<td>forecast</td>
 <td>2022-12-14</td>
 <td>2023-12-31</td>
 <td>13 months</td>
@@ -160,6 +172,7 @@ nav a {
 </tr>
 <tr>
 <td>Global cumulative solar PV capacity</td>
+<td>roadmap</td>
 <td>2010-05-10</td>
 <td>2020-12-31</td>
 <td>10.6 years</td>
@@ -169,6 +182,7 @@ nav a {
 </tr>
 <tr>
 <td>US PCE inflation</td>
+<td>forecast</td>
 <td>2021-12-15</td>
 <td>2022-12-31</td>
 <td>13 months</td>
@@ -178,6 +192,7 @@ nav a {
 </tr>
 <tr>
 <td>US real GDP growth</td>
+<td>forecast</td>
 <td>2021-12-15</td>
 <td>2022-12-31</td>
 <td>13 months</td>
@@ -187,6 +202,7 @@ nav a {
 </tr>
 <tr>
 <td>US real GDP growth</td>
+<td>forecast</td>
 <td>2023-12-13</td>
 <td>2024-12-31</td>
 <td>13 months</td>
@@ -227,11 +243,37 @@ nav a {
 </tr>
 </tbody>
 </table>
+<h2>Accuracy by Forecast Type</h2>
+<table>
+<thead>
+<tr>
+<th>Forecast Type</th>
+<th style="text-align: right;">Forecasts</th>
+<th style="text-align: right;">Mean Absolute Error</th>
+<th style="text-align: right;">Median Absolute Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>forecast</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">56.77%</td>
+<td style="text-align: right;">18.69%</td>
+</tr>
+<tr>
+<td>roadmap</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">147.02%</td>
+<td style="text-align: right;">147.02%</td>
+</tr>
+</tbody>
+</table>
 <h2>All Forecasts vs Facts</h2>
 <table>
 <thead>
 <tr>
 <th>Category</th>
+<th>Type</th>
 <th>Topic</th>
 <th>Forecast Made</th>
 <th>Target</th>
@@ -245,6 +287,7 @@ nav a {
 <tbody>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US real GDP growth</td>
 <td>2021-12-15</td>
 <td>2022-12-31</td>
@@ -256,6 +299,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US unemployment rate</td>
 <td>2021-12-15</td>
 <td>2022-12-31</td>
@@ -267,6 +311,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US PCE inflation</td>
 <td>2021-12-15</td>
 <td>2022-12-31</td>
@@ -278,6 +323,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global renewable capacity additions</td>
 <td>2020-11-10</td>
 <td>2020-12-31</td>
@@ -289,6 +335,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global solar PV additions</td>
 <td>2020-11-10</td>
 <td>2020-12-31</td>
@@ -300,6 +347,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US real GDP growth</td>
 <td>2022-12-14</td>
 <td>2023-12-31</td>
@@ -311,6 +359,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US unemployment rate</td>
 <td>2022-12-14</td>
 <td>2023-12-31</td>
@@ -322,6 +371,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US PCE inflation</td>
 <td>2022-12-14</td>
 <td>2023-12-31</td>
@@ -333,6 +383,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global renewable capacity additions</td>
 <td>2021-05-11</td>
 <td>2021-12-31</td>
@@ -344,6 +395,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global renewable capacity additions</td>
 <td>2021-05-11</td>
 <td>2022-12-31</td>
@@ -355,6 +407,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global solar PV capacity additions</td>
 <td>2021-05-11</td>
 <td>2022-12-31</td>
@@ -366,6 +419,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global renewable capacity additions</td>
 <td>2022-05-11</td>
 <td>2022-12-31</td>
@@ -377,6 +431,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global electric car sales</td>
 <td>2023-04-26</td>
 <td>2023-12-31</td>
@@ -388,6 +443,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US real GDP growth</td>
 <td>2023-12-13</td>
 <td>2024-12-31</td>
@@ -399,6 +455,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US unemployment rate</td>
 <td>2023-12-13</td>
 <td>2024-12-31</td>
@@ -410,6 +467,7 @@ nav a {
 </tr>
 <tr>
 <td>economics</td>
+<td>forecast</td>
 <td>US PCE inflation</td>
 <td>2023-12-13</td>
 <td>2024-12-31</td>
@@ -421,6 +479,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global electric car sales</td>
 <td>2024-04-23</td>
 <td>2024-12-31</td>
@@ -432,6 +491,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global electric car sales</td>
 <td>2020-05-27</td>
 <td>2020-12-31</td>
@@ -443,6 +503,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global renewable capacity additions</td>
 <td>2020-05-20</td>
 <td>2020-12-31</td>
@@ -454,6 +515,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>forecast</td>
 <td>Global solar PV additions</td>
 <td>2020-05-20</td>
 <td>2020-12-31</td>
@@ -465,6 +527,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>roadmap</td>
 <td>Global EV/PHEV annual sales</td>
 <td>2009-10-11</td>
 <td>2020-12-31</td>
@@ -476,6 +539,7 @@ nav a {
 </tr>
 <tr>
 <td>technology_energy</td>
+<td>roadmap</td>
 <td>Global cumulative solar PV capacity</td>
 <td>2010-05-10</td>
 <td>2020-12-31</td>
@@ -487,6 +551,7 @@ nav a {
 </tr>
 <tr>
 <td>policy_energy</td>
+<td>policy_target</td>
 <td>India solar power capacity</td>
 <td>2010-01-11</td>
 <td>2022-12-31</td>

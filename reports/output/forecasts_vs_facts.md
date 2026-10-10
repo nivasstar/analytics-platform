@@ -4,31 +4,35 @@ Comparing documented forecasts with observed outcomes
 
 ## Summary
 
-- Forecast comparisons: 23
-- Point forecasts: 19
-- Threshold forecasts: 4
-- Range forecasts: 0
+- Total comparisons: 23
+- Quantitative point forecasts: 19
 - Categories: 3
+
+### Forecast Types
+
+- forecast: 20
+- roadmap: 2
+- policy_target: 1
 
 ## Closest Forecasts
 
-| Topic | Forecast Made | Target | Horizon | Forecast | Actual | Absolute Error % |
-|---|---|---|---|---:|---:|---:|
-| Global electric car sales | 2023-04-26 | 2023-12-31 | 8 months | 14.00 | 14.00 | 0.00% |
-| US unemployment rate | 2023-12-13 | 2024-12-31 | 13 months | 4.10 | 4.10 | 0.00% |
-| Global electric car sales | 2024-04-23 | 2024-12-31 | 8 months | 17.00 | 17.00 | 0.00% |
-| US unemployment rate | 2021-12-15 | 2022-12-31 | 13 months | 3.50 | 3.60 | 2.86% |
-| Global renewable capacity additions | 2021-05-11 | 2021-12-31 | 8 months | 270.00 | 290.00 | 7.41% |
+| Topic | Type | Forecast Made | Target | Horizon | Forecast | Actual | Absolute Error % |
+|---|---|---|---|---|---:|---:|---:|
+| Global electric car sales | forecast | 2023-04-26 | 2023-12-31 | 8 months | 14.00 | 14.00 | 0.00% |
+| US unemployment rate | forecast | 2023-12-13 | 2024-12-31 | 13 months | 4.10 | 4.10 | 0.00% |
+| Global electric car sales | forecast | 2024-04-23 | 2024-12-31 | 8 months | 17.00 | 17.00 | 0.00% |
+| US unemployment rate | forecast | 2021-12-15 | 2022-12-31 | 13 months | 3.50 | 3.60 | 2.86% |
+| Global renewable capacity additions | forecast | 2021-05-11 | 2021-12-31 | 8 months | 270.00 | 290.00 | 7.41% |
 
 ## Biggest Misses
 
-| Topic | Forecast Made | Target | Horizon | Forecast | Actual | Absolute Error % |
-|---|---|---|---|---:|---:|---:|
-| US real GDP growth | 2022-12-14 | 2023-12-31 | 13 months | 0.50 | 3.10 | 520.00% |
-| Global cumulative solar PV capacity | 2010-05-10 | 2020-12-31 | 10.6 years | 210.00 | 707.50 | 236.90% |
-| US PCE inflation | 2021-12-15 | 2022-12-31 | 13 months | 2.60 | 5.70 | 119.23% |
-| US real GDP growth | 2021-12-15 | 2022-12-31 | 13 months | 4.00 | 0.90 | 77.50% |
-| US real GDP growth | 2023-12-13 | 2024-12-31 | 13 months | 1.40 | 2.40 | 71.43% |
+| Topic | Type | Forecast Made | Target | Horizon | Forecast | Actual | Absolute Error % |
+|---|---|---|---|---|---:|---:|---:|
+| US real GDP growth | forecast | 2022-12-14 | 2023-12-31 | 13 months | 0.50 | 3.10 | 520.00% |
+| Global cumulative solar PV capacity | roadmap | 2010-05-10 | 2020-12-31 | 10.6 years | 210.00 | 707.50 | 236.90% |
+| US PCE inflation | forecast | 2021-12-15 | 2022-12-31 | 13 months | 2.60 | 5.70 | 119.23% |
+| US real GDP growth | forecast | 2021-12-15 | 2022-12-31 | 13 months | 4.00 | 0.90 | 77.50% |
+| US real GDP growth | forecast | 2023-12-13 | 2024-12-31 | 13 months | 1.40 | 2.40 | 71.43% |
 
 ## Accuracy by Forecast Horizon
 
@@ -38,33 +42,40 @@ Comparing documented forecasts with observed outcomes
 | 1–3 years | 11 | 80.82% | 21.43% |
 | < 1 year | 6 | 12.66% | 12.99% |
 
+## Accuracy by Forecast Type
+
+| Forecast Type | Forecasts | Mean Absolute Error | Median Absolute Error |
+|---|---:|---:|---:|
+| forecast | 17 | 56.77% | 18.69% |
+| roadmap | 2 | 147.02% | 147.02% |
+
 ## All Forecasts vs Facts
 
-| Category | Topic | Forecast Made | Target | Horizon | Forecast | Actual | Error % | Classification |
-|---|---|---|---|---|---:|---:|---:|---|
-| economics | US real GDP growth | 2021-12-15 | 2022-12-31 | 13 months | 4.00 | 0.90 | -77.50% | actual_below_forecast |
-| economics | US unemployment rate | 2021-12-15 | 2022-12-31 | 13 months | 3.50 | 3.60 | 2.86% | very_close |
-| economics | US PCE inflation | 2021-12-15 | 2022-12-31 | 13 months | 2.60 | 5.70 | 119.23% | actual_above_forecast |
-| technology_energy | Global renewable capacity additions | 2020-11-10 | 2020-12-31 | 51 days | 198.00 | 260.00 | 31.31% | actual_above_forecast |
-| technology_energy | Global solar PV additions | 2020-11-10 | 2020-12-31 | 51 days | 107.00 | 127.00 | 18.69% | actual_above_forecast |
-| economics | US real GDP growth | 2022-12-14 | 2023-12-31 | 13 months | 0.50 | 3.10 | 520.00% | actual_above_forecast |
-| economics | US unemployment rate | 2022-12-14 | 2023-12-31 | 13 months | 4.60 | 3.70 | -19.57% | actual_below_forecast |
-| economics | US PCE inflation | 2022-12-14 | 2023-12-31 | 13 months | 3.10 | 2.70 | -12.90% | close |
-| technology_energy | Global renewable capacity additions | 2021-05-11 | 2021-12-31 | 8 months | 270.00 | 290.00 | 7.41% | close |
-| technology_energy | Global renewable capacity additions | 2021-05-11 | 2022-12-31 | 20 months | 280.00 | 340.00 | 21.43% | actual_above_forecast |
-| technology_energy | Global solar PV capacity additions | 2021-05-11 | 2022-12-31 | 20 months | 162.00 | 220.00 | 35.80% | actual_above_forecast |
-| technology_energy | Global renewable capacity additions | 2022-05-11 | 2022-12-31 | 8 months | > 300.00 | 340.00 | 13.33% | threshold_met |
-| technology_energy | Global electric car sales | 2023-04-26 | 2023-12-31 | 8 months | 14.00 | 14.00 | 0.00% | very_close |
-| economics | US real GDP growth | 2023-12-13 | 2024-12-31 | 13 months | 1.40 | 2.40 | 71.43% | actual_above_forecast |
-| economics | US unemployment rate | 2023-12-13 | 2024-12-31 | 13 months | 4.10 | 4.10 | 0.00% | very_close |
-| economics | US PCE inflation | 2023-12-13 | 2024-12-31 | 13 months | 2.40 | 2.60 | 8.33% | close |
-| technology_energy | Global electric car sales | 2024-04-23 | 2024-12-31 | 8 months | 17.00 | 17.00 | 0.00% | very_close |
-| technology_energy | Global electric car sales | 2020-05-27 | 2020-12-31 | 7 months | > 2.30 | 3.00 | 30.43% | threshold_met |
-| technology_energy | Global renewable capacity additions | 2020-05-20 | 2020-12-31 | 7 months | 167.00 | 198.00 | 18.56% | actual_above_forecast |
-| technology_energy | Global solar PV additions | 2020-05-20 | 2020-12-31 | 7 months | > 90.00 | 107.00 | 18.89% | threshold_met |
-| technology_energy | Global EV/PHEV annual sales | 2009-10-11 | 2020-12-31 | 11.2 years | 7.00 | 3.00 | -57.14% | actual_below_forecast |
-| technology_energy | Global cumulative solar PV capacity | 2010-05-10 | 2020-12-31 | 10.6 years | 210.00 | 707.50 | 236.90% | actual_above_forecast |
-| policy_energy | India solar power capacity | 2010-01-11 | 2022-12-31 | 13.0 years | > 20.00 | 61.60 | 208.00% | threshold_met |
+| Category | Type | Topic | Forecast Made | Target | Horizon | Forecast | Actual | Error % | Classification |
+|---|---|---|---|---|---|---:|---:|---:|---|
+| economics | forecast | US real GDP growth | 2021-12-15 | 2022-12-31 | 13 months | 4.00 | 0.90 | -77.50% | actual_below_forecast |
+| economics | forecast | US unemployment rate | 2021-12-15 | 2022-12-31 | 13 months | 3.50 | 3.60 | 2.86% | very_close |
+| economics | forecast | US PCE inflation | 2021-12-15 | 2022-12-31 | 13 months | 2.60 | 5.70 | 119.23% | actual_above_forecast |
+| technology_energy | forecast | Global renewable capacity additions | 2020-11-10 | 2020-12-31 | 51 days | 198.00 | 260.00 | 31.31% | actual_above_forecast |
+| technology_energy | forecast | Global solar PV additions | 2020-11-10 | 2020-12-31 | 51 days | 107.00 | 127.00 | 18.69% | actual_above_forecast |
+| economics | forecast | US real GDP growth | 2022-12-14 | 2023-12-31 | 13 months | 0.50 | 3.10 | 520.00% | actual_above_forecast |
+| economics | forecast | US unemployment rate | 2022-12-14 | 2023-12-31 | 13 months | 4.60 | 3.70 | -19.57% | actual_below_forecast |
+| economics | forecast | US PCE inflation | 2022-12-14 | 2023-12-31 | 13 months | 3.10 | 2.70 | -12.90% | close |
+| technology_energy | forecast | Global renewable capacity additions | 2021-05-11 | 2021-12-31 | 8 months | 270.00 | 290.00 | 7.41% | close |
+| technology_energy | forecast | Global renewable capacity additions | 2021-05-11 | 2022-12-31 | 20 months | 280.00 | 340.00 | 21.43% | actual_above_forecast |
+| technology_energy | forecast | Global solar PV capacity additions | 2021-05-11 | 2022-12-31 | 20 months | 162.00 | 220.00 | 35.80% | actual_above_forecast |
+| technology_energy | forecast | Global renewable capacity additions | 2022-05-11 | 2022-12-31 | 8 months | > 300.00 | 340.00 | 13.33% | threshold_met |
+| technology_energy | forecast | Global electric car sales | 2023-04-26 | 2023-12-31 | 8 months | 14.00 | 14.00 | 0.00% | very_close |
+| economics | forecast | US real GDP growth | 2023-12-13 | 2024-12-31 | 13 months | 1.40 | 2.40 | 71.43% | actual_above_forecast |
+| economics | forecast | US unemployment rate | 2023-12-13 | 2024-12-31 | 13 months | 4.10 | 4.10 | 0.00% | very_close |
+| economics | forecast | US PCE inflation | 2023-12-13 | 2024-12-31 | 13 months | 2.40 | 2.60 | 8.33% | close |
+| technology_energy | forecast | Global electric car sales | 2024-04-23 | 2024-12-31 | 8 months | 17.00 | 17.00 | 0.00% | very_close |
+| technology_energy | forecast | Global electric car sales | 2020-05-27 | 2020-12-31 | 7 months | > 2.30 | 3.00 | 30.43% | threshold_met |
+| technology_energy | forecast | Global renewable capacity additions | 2020-05-20 | 2020-12-31 | 7 months | 167.00 | 198.00 | 18.56% | actual_above_forecast |
+| technology_energy | forecast | Global solar PV additions | 2020-05-20 | 2020-12-31 | 7 months | > 90.00 | 107.00 | 18.89% | threshold_met |
+| technology_energy | roadmap | Global EV/PHEV annual sales | 2009-10-11 | 2020-12-31 | 11.2 years | 7.00 | 3.00 | -57.14% | actual_below_forecast |
+| technology_energy | roadmap | Global cumulative solar PV capacity | 2010-05-10 | 2020-12-31 | 10.6 years | 210.00 | 707.50 | 236.90% | actual_above_forecast |
+| policy_energy | policy_target | India solar power capacity | 2010-01-11 | 2022-12-31 | 13.0 years | > 20.00 | 61.60 | 208.00% | threshold_met |
 
 ---
 Generated by Analytics Platform
