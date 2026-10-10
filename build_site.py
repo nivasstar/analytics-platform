@@ -99,6 +99,13 @@ causal interpretation.
 </p>
 </div>
 
+
+<div class="card">
+<h2><a href="forecasts_dashboard.html">Interactive Forecasts Explorer</a></h2>
+<p>Filter forecasts by category, horizon, region, type and shock context.
+Explore linked charts, heatmaps and original evidence.</p>
+</div>
+
 </body>
 </html>
 """
