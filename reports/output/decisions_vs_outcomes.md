@@ -4,7 +4,7 @@ Comparing claims made during major policy debates with measurable outcomes obser
 
 ## Summary
 
-- Decisions analyzed: 7
+- Decisions analyzed: 12
 - Categories: 4
 - Jurisdictions: 4
 
@@ -34,6 +34,11 @@ coverage across policy categories and types of claims.
 | public_health_policy | Introduce the Soft Drinks Industry Levy | 2016-03-16 | 2020-12-31 | 4.8 years | The levy was designed to encourage manufacturers to reformulate drinks and reduce sugar content. | 46.00 percent reduction | high |
 | fiscal_policy | Introduce the Soft Drinks Industry Levy | 2016-03-16 | 2019-03-31 | 3.0 years | Budget 2016 expected the Soft Drinks Industry Levy to raise about £520 million in its first full year. | 240.00 GBP million | medium |
 | environment_policy | Expand ULEZ across all London boroughs | 2023-08-29 | 2024-08-29 | 1.0 years | Expansion was expected to reduce road-transport emissions and improve roadside air quality across outer London. | 4.80 percent reduction | high |
+| public_health_policy | Introduce minimum unit pricing for alcohol | 2018-05-01 | 2021-12-31 | 3.7 years | Pre-implementation modelling expected alcohol consumption to decline after minimum unit pricing. | 3.50 percent reduction | high |
+| public_health_policy | Introduce minimum unit pricing for alcohol | 2018-05-01 | 2020-12-31 | 2.7 years | Modelling projected a reduction in alcohol-attributable mortality after implementation. | 13.40 percent reduction | high |
+| public_health_policy | Introduce the Soft Drinks Industry Levy | 2016-03-16 | 2020-12-31 | 4.8 years | The levy was intended to encourage manufacturers to reformulate drinks and reduce sugar content. | 46.00 percent reduction | high |
+| fiscal_policy | Introduce the Soft Drinks Industry Levy | 2016-03-16 | 2019-03-31 | 3.0 years | Budget 2016 expected the levy to raise about £520 million in its first full year. | 240.00 GBP million | medium |
+| environment_policy | Expand ULEZ across all London boroughs | 2023-08-29 | 2024-08-29 | 1.0 years | Expansion was expected to reduce transport emissions and improve roadside air quality. | 4.80 percent reduction | high |
 
 ## Interpretation Principle
 
