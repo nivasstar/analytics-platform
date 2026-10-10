@@ -776,6 +776,13 @@ def plot_decision_prediction_vs_outcome(
         axis=1,
     )
 
+    data["prediction_chart_value"] = (
+        pd.to_numeric(
+            data["prediction_chart_value"],
+            errors="coerce",
+        )
+    )
+
     data["outcome_value"] = (
         pd.to_numeric(
             data["outcome_value"],
@@ -783,73 +790,108 @@ def plot_decision_prediction_vs_outcome(
         )
     )
 
-    data = data.dropna(
-        subset=[
-            "prediction_chart_value",
-            "outcome_value",
-        ]
-    )
+    # Only use cases that can be meaningfully normalized.
+    # Thresholds such as > 0 cannot be expressed as an
+    # observed-vs-predicted ratio.
+    data = data[
+        data["prediction_chart_value"].notna()
+        & data["outcome_value"].notna()
+        & (data["prediction_chart_value"] > 0)
+    ].copy()
 
     if data.empty:
         return None
 
-    chart_data = []
+    # Normalize each case so the published prediction = 100.
+    # This lets percentages, revenue, capacity, etc. coexist
+    # without mixing their raw units on one axis.
+    data["prediction_index"] = 100.0
 
-    for _, row in data.iterrows():
-        chart_data.append(
-            {
-                "label": str(
-                    row["decision"]
-                )[:40],
-                "series": "Prediction",
-                "value": row[
-                    "prediction_chart_value"
-                ],
-            }
-        )
-
-        chart_data.append(
-            {
-                "label": str(
-                    row["decision"]
-                )[:40],
-                "series": "Observed",
-                "value": row[
-                    "outcome_value"
-                ],
-            }
-        )
-
-    chart_df = pd.DataFrame(
-        chart_data
+    data["outcome_index"] = (
+        data["outcome_value"]
+        / data["prediction_chart_value"]
+        * 100
     )
 
-    pivot = chart_df.pivot(
-        index="label",
-        columns="series",
-        values="value",
+    # Each row must have a unique visual label because a single
+    # policy decision may have multiple measured outcomes.
+    data["chart_label"] = (
+        data["decision"].astype(str).str.slice(0, 30)
+        + " — "
+        + data["predicted_metric"]
+        .astype(str)
+        .str.replace("_", " ")
+        .str.slice(0, 28)
     )
 
-    plt.figure(figsize=(10, 6))
+    # Guard against any remaining duplicate labels.
+    duplicate_number = (
+        data.groupby("chart_label")
+        .cumcount()
+    )
 
-    pivot.plot(
+    data.loc[
+        duplicate_number > 0,
+        "chart_label"
+    ] = (
+        data.loc[
+            duplicate_number > 0,
+            "chart_label"
+        ]
+        + " #"
+        + (
+            duplicate_number[
+                duplicate_number > 0
+            ]
+            + 1
+        ).astype(str)
+    )
+
+    chart = data.set_index(
+        "chart_label"
+    )[
+        [
+            "prediction_index",
+            "outcome_index",
+        ]
+    ]
+
+    chart.columns = [
+        "Published Prediction",
+        "Observed Outcome",
+    ]
+
+    plt.figure(
+        figsize=(11, 6)
+    )
+
+    chart.plot(
         kind="bar",
         ax=plt.gca(),
     )
 
-    plt.title(
-        "Published Expectation vs Observed Outcome"
+    plt.axhline(
+        100,
+        linestyle="--",
+        linewidth=1,
     )
 
-    plt.xlabel("Decision")
-    plt.ylabel("Comparable Metric")
+    plt.title(
+        "Observed Outcome Relative to Published Prediction"
+    )
+
+    plt.xlabel("Decision / Metric")
+    plt.ylabel(
+        "Index (Published Prediction = 100)"
+    )
 
     plt.xticks(
-        rotation=20,
+        rotation=25,
         ha="right",
     )
 
     plt.legend()
+
     plt.grid(
         axis="y",
         alpha=0.25,
@@ -858,6 +900,7 @@ def plot_decision_prediction_vs_outcome(
     return _save_chart(
         "decisions_prediction_vs_outcome.png"
     )
+
 
 
 def plot_decision_horizons(df):

@@ -202,6 +202,7 @@ datasets:
         - decision
         - decision_date
         - jurisdiction
+        - claim_type
         - claim_source
         - outcome_source
         - status
@@ -211,6 +212,7 @@ datasets:
         - category
         - decision
         - decision_date
+        - claim_type
         - claim_source
         - outcome_source
         - status
