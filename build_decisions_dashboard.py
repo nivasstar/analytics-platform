@@ -129,11 +129,20 @@ function source(url,label){
 }
 function options(id,values){
  const s=$(id);
- const items=["All",...new Set(values.map(v=>String(v??"Unspecified")))]
-   .filter(v=>v!=="All").sort()];
+ s.innerHTML="";
+
+ const items=[
+  "All",
+  ...[...new Set(
+   values.map(v=>String(v??"Unspecified"))
+  )].filter(v=>v!=="All").sort()
+ ];
+
  items.forEach(v=>{
   const o=document.createElement("option");
-  o.value=v;o.textContent=v;s.appendChild(o);
+  o.value=v;
+  o.textContent=v;
+  s.appendChild(o);
  });
 }
 function year(r){return date(r.decision_date).slice(0,4);}
