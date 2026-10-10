@@ -38,13 +38,18 @@ jobs:
           pip install -e .
 
       - name: Build site
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: |
           python run_report.py config/reports/market_risk.yaml
           python run_report.py config/reports/economic_history.yaml
+          python run_report.py config/reports/forecasts_vs_facts.yaml
+          python run_report.py config/reports/decisions_vs_outcomes.yaml
           python build_site.py
-        env:
-          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-          ECON_HISTORY_HOME: ${{ github.workspace }}/external/global-economic-history
+
+
+
+
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
