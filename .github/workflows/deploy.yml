@@ -48,6 +48,7 @@ jobs:
           python build_interactive_dashboard.py
           python build_decisions_dashboard.py
           python build_economic_dashboard.py
+          python build_market_dashboard.py
           python build_site.py
 
 

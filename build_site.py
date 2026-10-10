@@ -122,6 +122,12 @@ explore timelines, and inspect supporting evidence.
 <p>Compare countries, explore centuries of economic and population
 history, and filter the timeline interactively.</p>
 </div>
+
+<div class="card">
+<h2><a href="market_dashboard.html">Interactive Market Risk Explorer</a></h2>
+<p>Explore SPY trends, moving averages, volatility, drawdowns,
+Treasury yield spreads, and unemployment with interactive filters.</p>
+</div>
 </body>
 </html>
 """
