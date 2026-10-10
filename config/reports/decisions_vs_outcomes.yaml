@@ -1,0 +1,14 @@
+report:
+  id: decisions_vs_outcomes
+  name: Debated Decisions vs Outcomes
+  description: Comparing claims made during major policy debates with measurable outcomes observed afterward
+
+  dataset:
+    builder: build_decisions_vs_outcomes
+
+  renderer:
+    type: decisions_vs_outcomes
+
+  output:
+    markdown: reports/output/decisions_vs_outcomes.md
+    html: reports/output/decisions_vs_outcomes.html

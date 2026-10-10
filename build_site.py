@@ -79,11 +79,51 @@ Forecasts vs Facts
 </a>
 </h2>
 
+
+
+<p>
+Long-run population, GDP and GDP-per-capita analysis
+across historical and modern data sources.
+</p>
+</div>
+      
+<div class="card">
+<h2>
+<a href="forecasts_vs_facts.html">
+Forecasts vs Facts  
+</a>
+</h2>
+
+    
+<div class="card">
+<h2>
+<a href="decisions_vs_outcomes.html">
+Debated Decisions vs Outcomes
+</a>
+</h2>
+   
+<p>
+Compare claims made during major policy debates with measurable
+outcomes observed afterward, while keeping evidence separate from
+causal interpretation.
+</p>
+</div>
+   
+   
+   
+   
 <p>
 Compare documented economic, technology and other forecasts
 with observed outcomes and supporting evidence.
-</p>
+</p>  
 </div>
+
+
+(OUTPUT / "index.html").write_text(
+    html,
+    encoding="utf-8"
+)
+
 
 </body>
 </html>

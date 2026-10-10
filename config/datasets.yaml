@@ -182,3 +182,38 @@ datasets:
 
       unique:
         - forecast_id
+
+  decisions_vs_outcomes.seed:
+    domain: decisions_vs_outcomes
+    description: Curated debated decisions and observed outcomes dataset
+
+    source:
+      type: csv
+      path: data/source/decisions_vs_outcomes/seed.csv
+
+    storage:
+      bronze: data/bronze/decisions_vs_outcomes/seed.parquet
+      silver: data/silver/decisions_vs_outcomes/seed.parquet
+
+    quality:
+      required_columns:
+        - decision_id
+        - category
+        - decision
+        - decision_date
+        - jurisdiction
+        - claim_source
+        - outcome_source
+        - status
+
+      not_null:
+        - decision_id
+        - category
+        - decision
+        - decision_date
+        - claim_source
+        - outcome_source
+        - status
+
+      unique:
+        - decision_id

@@ -144,3 +144,45 @@ def build_forecasts_vs_facts_gold():
     )
 
     return gold_df
+
+from analytics_platform.datasets.manager import get_dataset
+from analytics_platform.datasets.storage import StorageManager
+
+
+def build_decisions_vs_outcomes_gold():
+    df = get_dataset(
+        "decisions_vs_outcomes.seed"
+    ).copy()
+
+    for column in [
+        "decision_date",
+        "outcome_date",
+    ]:
+        if column in df.columns:
+            df[column] = pd.to_datetime(
+                df[column],
+                errors="coerce"
+            )
+
+    if (
+        "decision_date" in df.columns
+        and "outcome_date" in df.columns
+    ):
+        df["outcome_horizon_days"] = (
+            df["outcome_date"]
+            - df["decision_date"]
+        ).dt.days
+
+        df["outcome_horizon_years"] = (
+            df["outcome_horizon_days"]
+            / 365.25
+        ).round(1)
+
+    StorageManager.write_parquet(
+        df,
+        "data/gold/decisions_vs_outcomes/comparisons.parquet"
+    )
+
+    return df
+import pandas as pd
+
