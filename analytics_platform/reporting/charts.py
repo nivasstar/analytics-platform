@@ -879,8 +879,69 @@ def plot_forecast_error_heatmap(df):
 
 
 
+
+def plot_forecast_error_by_shock_context(df):
+    """Compare point-forecast errors by contextual period."""
+
+    data = df.copy()
+
+    if "shock_context" not in data.columns:
+        return None
+
+    data = data[
+        data["forecast_operator"] == "eq"
+    ].copy()
+
+    data["abs_error_pct"] = pd.to_numeric(
+        data["percentage_error"],
+        errors="coerce",
+    ).abs()
+
+    data = data.dropna(
+        subset=["abs_error_pct", "shock_context"]
+    )
+
+    if data.empty:
+        return None
+
+    summary = (
+        data.groupby("shock_context")
+        .agg(
+            mean_error=("abs_error_pct", "mean"),
+            median_error=("abs_error_pct", "median"),
+            count=("forecast_id", "count"),
+        )
+        .reset_index()
+        .sort_values("mean_error", ascending=False)
+    )
+
+    fig, ax = plt.subplots(figsize=(9, 5))
+
+    bars = ax.bar(
+        summary["shock_context"],
+        summary["mean_error"],
+    )
+
+    for bar, count in zip(bars, summary["count"]):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            bar.get_height(),
+            f"n={count}",
+            ha="center",
+            va="bottom",
+        )
+
+    ax.set_title("Forecast Error by Shock Context")
+    ax.set_xlabel("Context")
+    ax.set_ylabel("Mean Absolute Percentage Error (%)")
+    ax.grid(axis="y", alpha=0.25)
+
+    return _save_chart("forecast_error_by_shock_context.png")
+
+
 def build_forecasts_vs_facts_charts(df):
     return {
+        "shock_context": plot_forecast_error_by_shock_context(df),
         "scatter": (
             plot_forecast_vs_actual(df)
         ),

@@ -470,6 +470,12 @@ def render_forecasts_vs_facts(
         else "Not enough data for heatmap."
     )
 
+    shock_context_chart = (
+        f'![Forecast Error by Shock Context]({charts["shock_context"]})'
+        if charts.get("shock_context")
+        else "Not enough data for shock-context comparison."
+    )
+
     return f"""# {report["name"]}
 
 {report.get("description", "")}
@@ -509,6 +515,12 @@ categories and forecast horizons.
 | Horizon | Forecasts | Mean Absolute Error | Median Absolute Error |
 |---|---:|---:|---:|
 {horizon_rows}
+
+## Forecast Error by Shock Context
+
+{shock_context_chart}
+
+*This is a descriptive comparison, not evidence that a shock caused a forecast miss. The groups may contain different metrics and horizons.*
 
 ## Closest Forecasts
 
