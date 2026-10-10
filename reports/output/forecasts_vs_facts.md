@@ -29,6 +29,13 @@ to the observed outcome.
 
 ![Accuracy by Horizon](assets/accuracy_by_horizon.png)
 
+## Forecast Error Heatmap
+
+![Forecast Error Heatmap](assets/forecast_error_heatmap.png)
+
+This matrix compares average forecast error across
+categories and forecast horizons.
+
 | Horizon | Forecasts | Mean Absolute Error | Median Absolute Error |
 |---|---:|---:|---:|
 | 10+ years | 2 | 147.02% | 147.02% |

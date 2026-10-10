@@ -120,6 +120,91 @@ def _save_chart(filename):
 
 
 # ============================================================
+# REUSABLE HEATMAP SUPPORT
+# ============================================================
+
+def render_heatmap_matrix(
+    matrix,
+    title,
+    xlabel,
+    ylabel,
+    filename,
+    value_format=".1f",
+):
+    """
+    Render a numeric pandas DataFrame as a heatmap.
+
+    Rows and columns are categorical dimensions.
+    Cell values are supplied by the caller.
+    """
+
+    if matrix is None or matrix.empty:
+        return None
+
+    matrix = matrix.copy()
+
+    plt.figure(
+        figsize=(
+            max(8, len(matrix.columns) * 1.8),
+            max(5, len(matrix.index) * 0.8),
+        )
+    )
+
+    image = plt.imshow(
+        matrix.values,
+        aspect="auto",
+    )
+
+    plt.colorbar(
+        image,
+        label=title,
+    )
+
+    plt.xticks(
+        range(len(matrix.columns)),
+        matrix.columns,
+        rotation=25,
+        ha="right",
+    )
+
+    plt.yticks(
+        range(len(matrix.index)),
+        matrix.index,
+    )
+
+    # Add values into cells
+    for row_index in range(
+        len(matrix.index)
+    ):
+        for column_index in range(
+            len(matrix.columns)
+        ):
+            value = matrix.iloc[
+                row_index,
+                column_index,
+            ]
+
+            if pd.notna(value):
+                plt.text(
+                    column_index,
+                    row_index,
+                    format(
+                        value,
+                        value_format,
+                    ),
+                    ha="center",
+                    va="center",
+                )
+
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+
+    return _save_chart(filename)
+
+
+
+# ============================================================
 # MARKET RISK
 # ============================================================
 
@@ -714,6 +799,86 @@ def plot_accuracy_by_horizon(df):
     )
 
 
+def plot_forecast_error_heatmap(df):
+    point = _point_forecasts(df)
+
+    if (
+        point.empty
+        or "abs_percentage_error"
+        not in point.columns
+    ):
+        return None
+
+    point = point.dropna(
+        subset=[
+            "forecast_horizon_years",
+            "abs_percentage_error",
+            "category",
+        ]
+    )
+
+    if point.empty:
+        return None
+
+    def horizon_bucket(years):
+        if years < 1:
+            return "< 1 year"
+
+        if years < 3:
+            return "1-3 years"
+
+        if years < 10:
+            return "3-10 years"
+
+        return "10+ years"
+
+    point["horizon_bucket"] = (
+        point[
+            "forecast_horizon_years"
+        ]
+        .apply(horizon_bucket)
+    )
+
+    order = [
+        "< 1 year",
+        "1-3 years",
+        "3-10 years",
+        "10+ years",
+    ]
+
+    matrix = point.pivot_table(
+        index="category",
+        columns="horizon_bucket",
+        values="abs_percentage_error",
+        aggfunc="mean",
+    )
+
+    existing_columns = [
+        column
+        for column in order
+        if column in matrix.columns
+    ]
+
+    matrix = matrix[
+        existing_columns
+    ]
+
+    return render_heatmap_matrix(
+        matrix=matrix,
+        title=(
+            "Average Forecast Error by "
+            "Category and Horizon"
+        ),
+        xlabel="Forecast Horizon",
+        ylabel="Category",
+        filename=(
+            "forecast_error_heatmap.png"
+        ),
+        value_format=".1f",
+    )
+
+
+
 def build_forecasts_vs_facts_charts(df):
     return {
         "scatter": (
@@ -724,6 +889,9 @@ def build_forecasts_vs_facts_charts(df):
         ),
         "horizon": (
             plot_accuracy_by_horizon(df)
+        ),
+        "heatmap": (
+            plot_forecast_error_heatmap(df)
         ),
     }
 
@@ -960,6 +1128,46 @@ def plot_decision_horizons(df):
     )
 
 
+def plot_decision_coverage_heatmap(df):
+    data = df.copy()
+
+    if (
+        "category" not in data.columns
+        or "claim_type" not in data.columns
+    ):
+        return None
+
+    data = data.dropna(
+        subset=[
+            "category",
+            "claim_type",
+        ]
+    )
+
+    if data.empty:
+        return None
+
+    matrix = pd.crosstab(
+        data["category"],
+        data["claim_type"],
+    )
+
+    return render_heatmap_matrix(
+        matrix=matrix,
+        title=(
+            "Decision Evidence Coverage "
+            "by Category and Claim Type"
+        ),
+        xlabel="Claim Type",
+        ylabel="Policy Category",
+        filename=(
+            "decisions_coverage_heatmap.png"
+        ),
+        value_format=".0f",
+    )
+
+
+
 def build_decisions_vs_outcomes_charts(
     df,
 ):
@@ -971,6 +1179,11 @@ def build_decisions_vs_outcomes_charts(
         ),
         "horizon": (
             plot_decision_horizons(
+                df
+            )
+        ),
+        "heatmap": (
+            plot_decision_coverage_heatmap(
                 df
             )
         ),

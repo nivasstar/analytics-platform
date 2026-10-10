@@ -464,6 +464,12 @@ def render_forecasts_vs_facts(
         else "Not enough data."
     )
 
+    heatmap_chart = (
+        f'![Forecast Error Heatmap]({charts["heatmap"]})'
+        if charts["heatmap"]
+        else "Not enough data for heatmap."
+    )
+
     return f"""# {report["name"]}
 
 {report.get("description", "")}
@@ -492,6 +498,13 @@ to the observed outcome.
 ## Accuracy by Forecast Horizon
 
 {horizon_chart}
+
+## Forecast Error Heatmap
+
+{heatmap_chart}
+
+This matrix compares average forecast error across
+categories and forecast horizons.
 
 | Horizon | Forecasts | Mean Absolute Error | Median Absolute Error |
 |---|---:|---:|---:|
@@ -608,6 +621,12 @@ def render_decisions_vs_outcomes(
         else "Not enough horizon data."
     )
 
+    decision_heatmap = (
+        f'![Decision Coverage Heatmap]({charts["heatmap"]})'
+        if charts["heatmap"]
+        else "Not enough data for heatmap."
+    )
+
     return f"""# {report["name"]}
 
 {report.get("description", "")}
@@ -625,6 +644,13 @@ def render_decisions_vs_outcomes(
 ## Decision-to-Outcome Horizon
 
 {horizon_chart}
+
+## Evidence Coverage Matrix
+
+{decision_heatmap}
+
+This matrix shows where the current decision dataset has
+coverage across policy categories and types of claims.
 
 ## Decisions vs Outcomes
 

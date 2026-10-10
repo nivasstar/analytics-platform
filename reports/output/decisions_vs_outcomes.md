@@ -16,6 +16,13 @@ Comparing claims made during major policy debates with measurable outcomes obser
 
 ![Decision Horizons](assets/decisions_outcome_horizon.png)
 
+## Evidence Coverage Matrix
+
+![Decision Coverage Heatmap](assets/decisions_coverage_heatmap.png)
+
+This matrix shows where the current decision dataset has
+coverage across policy categories and types of claims.
+
 ## Decisions vs Outcomes
 
 | Category | Decision | Decision Date | Outcome Date | Horizon | Claim at the Time | Observed Outcome | Confidence |
