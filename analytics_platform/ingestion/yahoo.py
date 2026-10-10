@@ -8,40 +8,58 @@ class YahooSource(DataSource):
 
     def fetch(
         self,
-        symbol,
+        ticker=None,
+        symbol=None,
+        start=None,
+        end=None,
         start_date=None,
         end_date=None,
-        **kwargs
+        **kwargs,
     ):
-        df = yf.download(
-            symbol,
-            start=start_date,
-            end=end_date,
-            progress=False,
-            auto_adjust=False
-        )
+        # Support either registry convention:
+        # ticker: SPY
+        # or
+        # symbol: SPY
+        resolved_ticker = ticker or symbol
 
-        if df.empty:
+        if not resolved_ticker:
             raise ValueError(
-                f"No Yahoo Finance data returned for {symbol}"
+                "Yahoo source requires 'ticker' or 'symbol'"
             )
 
-        df = df.reset_index()
+        # Support either date naming convention
+        resolved_start = start or start_date
+        resolved_end = end or end_date
 
-        # Flatten yfinance MultiIndex columns
+        df = yf.download(
+            resolved_ticker,
+            start=resolved_start,
+            end=resolved_end,
+            progress=False,
+            auto_adjust=False,
+        )
+
+        if df is None or df.empty:
+            return pd.DataFrame()
+
+        # yfinance often returns MultiIndex columns
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = [
-                col[0] if col[1] == "" else col[0]
+                col[0] if isinstance(col, tuple) else col
                 for col in df.columns
             ]
 
-        # Standardize column names
+        df = df.reset_index()
+
         df.columns = [
-            str(col).strip().lower().replace(" ", "_")
+            str(col)
+            .strip()
+            .lower()
+            .replace(" ", "_")
             for col in df.columns
         ]
 
-        expected_columns = [
+        expected = [
             "date",
             "open",
             "high",
@@ -51,9 +69,22 @@ class YahooSource(DataSource):
             "volume",
         ]
 
-        available_columns = [
-            col for col in expected_columns
-            if col in df.columns
-        ]
+        for column in expected:
+            if column not in df.columns:
+                df[column] = pd.NA
 
-        return df[available_columns]
+        # Remove incomplete Yahoo rows before validation.
+        # Rows without a date or closing price cannot be used
+        # for returns, averages, volatility, or drawdown.
+        df = df[
+            df["date"].notna()
+            & df["close"].notna()
+        ].copy()
+
+        df = df.sort_values(
+            "date"
+        ).reset_index(
+            drop=True
+        )
+
+        return df[expected]
