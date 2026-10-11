@@ -26,4 +26,27 @@ jobs:
 
       - name: Scan Git history
         run: |
-          gitleaks git . --redact --exit-code 1
+          gitleaks git . --redact --exit-code 1 --report-format json --report-path /tmp/gitleaks-report.json
+
+      - name: Summarize findings safely
+        if: always()
+        run: |
+          python - <<'PYREPORT'
+          import json
+          from pathlib import Path
+
+          p = Path('/tmp/gitleaks-report.json')
+          if not p.exists():
+              print('No JSON report available')
+              raise SystemExit(0)
+
+          findings = json.loads(p.read_text())
+          print('Potential findings:', len(findings))
+
+          for f in findings:
+              print('Rule:', f.get('RuleID'))
+              print('File:', f.get('File'))
+              print('Line:', f.get('StartLine'))
+              print('Commit:', f.get('Commit'))
+              print('---')
+          PYREPORT
