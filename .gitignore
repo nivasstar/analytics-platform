@@ -9,3 +9,8 @@ data/gold/
 
 # Generated public release artifact
 reports/public/
+
+# Locally generated Yahoo-derived market reports
+/reports/output/market_risk.html
+/reports/output/market_risk.md
+/reports/output/assets/spy_vs_ma200.png
