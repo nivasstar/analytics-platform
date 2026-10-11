@@ -6,3 +6,6 @@ __pycache__/
 data/bronze/
 data/silver/
 data/gold/
+
+# Generated public release artifact
+reports/public/

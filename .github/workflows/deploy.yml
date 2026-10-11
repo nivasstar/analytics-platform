@@ -50,6 +50,7 @@ jobs:
           python build_economic_dashboard.py
           python build_market_dashboard.py
           python build_site.py
+          python build_public_release.py
 
 
 
@@ -58,7 +59,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: reports/output
+          path: reports/public
 
   deploy:
     environment:
