@@ -48,5 +48,6 @@ jobs:
               print('File:', f.get('File'))
               print('Line:', f.get('StartLine'))
               print('Commit:', f.get('Commit'))
+              print('Fingerprint:', f.get('Fingerprint'))
               print('---')
           PYREPORT
